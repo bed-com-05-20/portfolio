@@ -164,7 +164,7 @@ const Contact = () => {
                 <h3 className="mb-4 text-2xl font-bold">address</h3>
                 <div className="flex items-center">
                   <MapPin className="mr-2 h-5 w-5" style={{ color: 'rgb(var(--primary-color))' }} />
-                  <span className="text-xl">Mponela, Iowa</span>
+                  <span className="text-xl">Mponela, Dowa, Malawi</span>
                 </div>
               </div>
             </div>

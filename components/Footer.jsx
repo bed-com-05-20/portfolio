@@ -15,16 +15,16 @@ const Footer = () => {
           </div>
           
           <div className="flex space-x-4">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon text-white">
+            <a href="https://web.facebook.com/rodgers.chisale.5688" target="_blank" rel="noopener noreferrer" className="social-icon text-white">
               <Facebook />
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon text-white">
+            <a href="https://x.com/Fwafaxa" target="_blank" rel="noopener noreferrer" className="social-icon text-white">
               <Twitter />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon text-white">
+            <a href="https://www.instagram.com/rodgerchisale/" target="_blank" rel="noopener noreferrer" className="social-icon text-white">
               <Instagram />
             </a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="social-icon text-white">
+            <a href="https://github.com/bed-com-05-20" target="_blank" rel="noopener noreferrer" className="social-icon text-white">
               <Github />
             </a>
           </div>
