@@ -15,7 +15,6 @@ const Hero = () => {
       <div className="mx-auto max-w-7xl px-6 py-12">
         <div className="flex flex-col items-center justify-between gap-12 md:flex-row">
           <div className={`transition-all duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'}`}>
-            <h2 className="mb-4 text-3xl font-bold text-gray-300">TRADITIONAL DIGITAL</h2>
             <h1 className="mb-6 text-5xl font-bold text-white">Hello! I'm</h1>
             <h1 className="mb-8 text-5xl font-bold italic text-blue-400">RODGERS CHISALE,</h1>
             <p className="mb-10 max-w-xl text-xl text-gray-400">

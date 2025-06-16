@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isSending, setIsSending] = useState(false);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -15,6 +17,9 @@ const Contact = () => {
   });
 
   useEffect(() => {
+    // Initialize EmailJS (replace with your actual credentials)
+    emailjs.init('wKtKAke8HD0R46yu0'); 
+    
     const handleScroll = () => {
       const element = document.getElementById('contact');
       if (element) {
@@ -26,7 +31,7 @@ const Contact = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check on initial load
+    handleScroll();
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -38,18 +43,38 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
   
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Message sent! (This is a demo)');
-    setFormData({
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      service: '',
-      message: ''
-    });
+    setIsSending(true);
+
+    try {
+      await emailjs.send(
+        'service_6q1ixvb', 
+        'template_8jpyyv8',
+        {
+          from_name: `${formData.firstName} ${formData.lastName}`,
+          from_email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          message: formData.message
+        }
+      );
+
+      alert('Message sent successfully!');
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        service: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Error sending message:', error);
+      alert('Failed to send message. Please try again.');
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -147,9 +172,10 @@ const Contact = () => {
               <div className="text-center">
                 <button 
                   type="submit" 
-                  className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-500 transition-colors"
+                  className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-500 transition-colors disabled:opacity-50"
+                  disabled={isSending}
                 >
-                  Send message
+                  {isSending ? 'Sending...' : 'Send message'}
                 </button>
               </div>
             </form>
@@ -162,7 +188,7 @@ const Contact = () => {
                 <h3 className="mb-4 text-2xl font-bold text-white">phone</h3>
                 <div className="flex items-center">
                   <Phone className="mr-2 h-5 w-5 text-blue-400" />
-                  <span className="text-xl text-gray-300">(+265) 0990 012 621</span>
+                  <span className="text-xl text-gray-300">+265(0) 990 0126 21</span>
                 </div>
               </div>
               
