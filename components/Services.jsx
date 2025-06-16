@@ -49,23 +49,29 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="min-h-screen py-24">
+    <section id="services" className="min-h-screen py-24 bg-black">
       <div className="mx-auto max-w-7xl px-6">
-        <h2 className={`section-title transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ color: 'rgb(var(--primary-color))' }}>SERVICES</h2>
+  
         
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {services.map((service, index) => (
             <div 
               key={service.id}
-              className={`service-card transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+              className={`p-8 rounded-xl bg-gray-900 transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
-              <h3 className="service-number" style={{ color: 'rgb(var(--primary-color))' }}>{service.id}</h3>
-              <h4 className="service-title">{service.title}</h4>
-              <p className="service-description">{service.description}</p>
-              <div className="flex items-center">
-                <ArrowRight className="h-6 w-6" style={{ color: 'rgb(var(--primary-color))' }} />
+              <div className="flex justify-between items-start mb-6">
+                <span className="text-2xl font-bold text-blue-400">{service.id}</span>
+                <button className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-500 transition-colors">
+                  <ArrowRight className="h-5 w-5 text-white" />
+                </button>
               </div>
+              <h4 className="text-2xl font-bold text-white mb-4">{service.title}</h4>
+              <p className="text-gray-400 mb-6">{service.description}</p>
+              <button className="text-blue-400 hover:text-blue-300 flex items-center transition-colors">
+                Learn more
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </button>
             </div>
           ))}
         </div>

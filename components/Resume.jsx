@@ -51,7 +51,7 @@ const Resume = () => {
       id: 2,
       date: "2016 - 2018",
       title: "Programming in Different Languages",
-      institution: "Online Learning",
+      institution: "UNIMA, Online Learning",
     },
   ];
 
@@ -71,19 +71,19 @@ const Resume = () => {
   ];
 
   const aboutMe = (
-    <div className="rounded-lg bg-primary-color bg-opacity-80 p-6 text-white">
-      <p className="mb-4 text-lg">
+    <div className="rounded-lg bg-gray-800 p-6 text-gray-300">
+      <p className="mb-4">
         I am a passionate software developer with a strong focus on creating
         beautiful, functional websites and applications. With 4 years of
         experience, I've developed a deep understanding of modern web
         technologies and best practices.
       </p>
-      <p className="mb-4 text-lg">
+      <p className="mb-4">
         My approach combines technical expertise with creative problem-solving
         to deliver solutions that not only work flawlessly but also provide an
         exceptional user experience.
       </p>
-      <p className="text-lg">
+      <p>
         When I'm not coding, I enjoy exploring new technologies, contributing to
         open-source projects, and sharing my knowledge with the developer
         community.
@@ -92,26 +92,21 @@ const Resume = () => {
   );
 
   return (
-    <section id="resume" className="min-h-screen py-24">
+    <section id="resume" className="min-h-screen py-24 bg-black">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col md:flex-row md:gap-12">
           {/* Sidebar Navigation */}
           <div className="mb-12 md:mb-0 md:w-1/3">
             <h2
-              className={`section-title transition-all duration-1000 ${
-                isVisible
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-10 opacity-0"
-              }`}
-              style={{ color: "rgb(var(--primary-color))" }}
+              className={`text-4xl font-bold mb-8 transition-all duration-1000 ${
+                isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+              } text-blue-400`}
             >
               WHY HIRE ME?
             </h2>
             <p
-              className={`mb-12 text-xl transition-all duration-1000 ${
-                isVisible
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-10 opacity-0"
+              className={`mb-12 text-xl text-gray-400 transition-all duration-1000 ${
+                isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
               }`}
               style={{ transitionDelay: "200ms" }}
             >
@@ -123,15 +118,11 @@ const Resume = () => {
               {["experience", "education", "skills", "about"].map((tab) => (
                 <button
                   key={tab}
-                  className={`w-full rounded-lg py-3 text-left text-xl font-bold transition-all duration-300 ${
+                  className={`w-full rounded-lg py-3 px-4 text-left text-lg font-medium transition-all duration-300 ${
                     activeTab === tab
-                      ? "bg-primary-color text-white"
-                      : "bg-transparent"
+                      ? "bg-blue-600 text-white"
+                      : "bg-gray-800 text-gray-300 hover:bg-gray-700"
                   }`}
-                  style={{
-                    backgroundColor:
-                      activeTab === tab ? "rgb(var(--primary-color))" : "transparent",
-                  }}
                   onClick={() => setActiveTab(tab)}
                 >
                   {tab === "experience"
@@ -150,10 +141,8 @@ const Resume = () => {
           <div className="md:w-2/3">
             {/* Dynamic Section Title */}
             <h2
-              className={`section-subtitle mb-8 transition-all duration-1000 ${
-                isVisible
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-10 opacity-0"
+              className={`text-3xl font-bold mb-8 text-white transition-all duration-1000 ${
+                isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
               }`}
               style={{ transitionDelay: "400ms" }}
             >
@@ -169,27 +158,25 @@ const Resume = () => {
             {/* Dynamic Content */}
             <div
               className={`transition-all duration-1000 ${
-                isVisible
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-10 opacity-0"
+                isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
               }`}
               style={{ transitionDelay: "600ms" }}
             >
               {activeTab === "experience" &&
                 experiences.map((exp) => (
-                  <div key={exp.id} className="experience-card">
-                    <p className="experience-date">{exp.date}</p>
-                    <h3 className="experience-title">{exp.title}</h3>
-                    <p className="experience-company">{exp.company}</p>
+                  <div key={exp.id} className="mb-8 p-6 rounded-lg bg-gray-800">
+                    <p className="text-blue-400 mb-2">{exp.date}</p>
+                    <h3 className="text-xl font-bold text-white mb-1">{exp.title}</h3>
+                    <p className="text-gray-400">{exp.company}</p>
                   </div>
                 ))}
 
               {activeTab === "education" &&
                 education.map((edu) => (
-                  <div key={edu.id} className="experience-card">
-                    <p className="experience-date">{edu.date}</p>
-                    <h3 className="experience-title">{edu.title}</h3>
-                    <p className="experience-company">{edu.institution}</p>
+                  <div key={edu.id} className="mb-8 p-6 rounded-lg bg-gray-800">
+                    <p className="text-blue-400 mb-2">{edu.date}</p>
+                    <h3 className="text-xl font-bold text-white mb-1">{edu.title}</h3>
+                    <p className="text-gray-400">{edu.institution}</p>
                   </div>
                 ))}
 
@@ -198,7 +185,7 @@ const Resume = () => {
                   {skills.map((skill, index) => (
                     <div
                       key={index}
-                      className="rounded-lg bg-primary-color bg-opacity-80 p-4 text-center text-white"
+                      className="rounded-lg bg-gray-800 p-4 text-center text-white hover:bg-blue-600 transition-colors"
                     >
                       {skill}
                     </div>
