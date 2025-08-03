@@ -43,13 +43,13 @@ const Resume = () => {
   const education = [
     {
       id: 1,
-      date: "2018 - 2022",
+      date: "2021 - 2025",
       title: "Bachelor of Education in Computer Science",
       institution: "University of Malawi",
     },
     {
       id: 2,
-      date: "2016 - 2018",
+      date: "2021 - 2025",
       title: "Programming in Different Languages",
       institution: "UNIMA, Online Learning",
     },
