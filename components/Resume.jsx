@@ -30,13 +30,13 @@ const Resume = () => {
       id: 1,
       date: "2021 - Present",
       title: "Full Stack Developer",
-      company: "RodgerTech",
+      company: "SkyTech",
     },
     {
       id: 2,
       date: "2021 - Present",
       title: "Front-end Developer Intern",
-      company: "RodgerTech",
+      company: "SkyTech",
     },
   ];
 
