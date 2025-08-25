@@ -36,7 +36,7 @@ const About = ({ setActiveSection }) => {
               business transformation services and robust customer support systems to help your business thrive.
             </p>
             <p className="text-xl text-gray-400 mb-10">
-              At Xhed, our mission is to empower businesses and individuals with cutting-edge digital solutions.
+              At SKYTEC, our mission is to empower businesses and individuals with cutting-edge digital solutions.
             </p>
             <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-500 transition-colors">
               Contact Us →

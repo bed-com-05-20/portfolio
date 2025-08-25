@@ -14,7 +14,7 @@ const Footer = ({ scrollToSection }) => {
           <div>
             <div className="flex items-center mb-6">
               <div className="mr-3 flex h-10 w-10 items-center justify-center rounded-full border-2 border-blue-400 bg-gray-800 p-1">
-                <span className="text-xl font-bold text-blue-400">SKYTEC</span>
+                <span className="text-xl font-bold text-blue-400"></span>
               </div>
               <span className="text-xl font-bold text-white">SKYTEC</span>
             </div>
