@@ -7,9 +7,22 @@ import Services from "../components/Services";
 import About from "../components/About";
 import Pricing from "../components/Pricing";
 import Footer from "../components/Footer";
+import Contact from "../components/Contact";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("home");
+
+  // Scroll function
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      window.scrollTo({
+        top: section.offsetTop - 80, // adjust offset for navbar
+        behavior: "smooth",
+      });
+      setActiveSection(id);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-900 text-white relative">
@@ -28,12 +41,17 @@ export default function Home() {
 
       {/* Content */}
       <div className="relative z-10">
-        <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
-        <Hero />
+        <Navbar
+          activeSection={activeSection}
+          setActiveSection={setActiveSection}
+        
+        />
+        <Hero scrollToSection={scrollToSection} /> {/* pass it here too */}
         <Services />
         <About setActiveSection={setActiveSection} />
         <Pricing setActiveSection={setActiveSection} />
-        <Footer scrollToSection={undefined} />
+        <Contact />
+        <Footer scrollToSection={scrollToSection} /> 
       </div>
     </div>
   );

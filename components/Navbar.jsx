@@ -11,7 +11,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
       setScrolled(isScrolled);
 
       // Update active section based on scroll position
-      const sections = ["home", "services", "about", "products", "contact"];
+      const sections = ["home", "services", "about", "pricing", "contact"];
       const scrollPosition = window.scrollY + 100;
 
       sections.forEach((section) => {
@@ -55,21 +55,16 @@ const Navbar = ({ activeSection, setActiveSection }) => {
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         {/* LOGO AREA */}
-        <div className="flex items-center space-x-3">
-          {/* Image logo (replace /logo.png with your image) */}
-          <img
-            src="/logo.png"
-            alt="Skytec Logo"
-            className="h-10 w-10 rounded-full border-2 border-blue-400 object-cover"
-          />
-
-          {/* Text branding */}
+        <div className="flex items-center">
+          <div className="mr-3 flex h-10 w-10 items-center justify-center rounded-full border-2 border-blue-400 bg-gray-800 p-1">
+            <span className="text-xl font-bold text-blue-400">S</span>
+          </div>
           <span className="text-xl font-bold text-white">SKYTEC</span>
         </div>
 
         {/* NAV LINKS */}
         <div className="hidden md:flex space-x-8">
-          {["home", "services", "about", "products", "contact"].map((section) => (
+          {["home", "services", "about", "pricing", "contact"].map((section) => (
             <button
               key={section}
               onClick={() => scrollToSection(section)}

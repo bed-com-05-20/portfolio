@@ -2,67 +2,75 @@
 
 const Services = () => {
   return (
-    <section className="py-16 bg-gray-900">
+    <section className="py-20 bg-black">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-white mb-4">We do</h2>
+          <h2 className="text-4xl font-extrabold text-white">Our Services</h2>
+          <p className="text-gray-400 mt-3 max-w-2xl mx-auto">
+            We provide top-notch digital solutions tailored to your business needs.
+          </p>
         </div>
 
         {/* Services Grid */}
-        <div id="services" className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Service 1 - Website design and development */}
-          <div className="bg-gray-800 rounded-lg overflow-hidden">
-            {/* Image placeholder - Replace with your actual image */}
-            <div className="h-48 bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center">
-              <span className="text-white text-lg font-semibold">Website Design Image</span>
-            </div>
-            <div className="p-8">
-              <h3 className="text-2xl font-bold text-white mb-6">Website design and development</h3>
-              <div className="flex justify-between items-center">
-                <span className="text-blue-400 font-semibold">We do</span>
-                <button className="text-blue-400 hover:text-blue-300 font-medium">
-                  Read More
-                </button>
-              </div>
+        <div
+          id="services"
+          className="grid grid-cols-1 md:grid-cols-3 gap-10"
+        >
+          {/* Service 1 */}
+          <div className="bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300">
+            <div
+              className="h-56 bg-cover bg-center"
+              style={{ backgroundImage: "url('/web.jpg')" }}
+            ></div>
+            <div className="p-6 text-center">
+              <span className="text-blue-400 font-semibold text-sm uppercase tracking-wider">
+                We do
+              </span>
+              <h3 className="text-xl font-bold text-white mt-2 mb-4">
+                Website Design & Development
+              </h3>
+              <button className="text-blue-400 hover:text-blue-300 font-medium">
+                Read More →
+              </button>
             </div>
           </div>
 
-          {/* Service 2 - Custom Software Development */}
-          <div className="bg-gray-800 rounded-lg overflow-hidden">
-            {/* Image placeholder - Replace with your actual image */}
-            <div className="h-48 bg-gradient-to-r from-green-600 to-teal-600 flex items-center justify-center">
-              <span className="text-white text-lg font-semibold">Software Development Image</span>
-            </div>
-            <div className="p-8">
-              <h3 className="text-2xl font-bold text-white mb-6">
-                <span className="text-blue-400 font-semibold block mb-2">We do</span>
-                <strong>Custom Software Development</strong>
+          {/* Service 2 */}
+          <div className="bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300">
+            <div
+              className="h-56 bg-cover bg-center"
+              style={{ backgroundImage: "url('/customise.jpg')" }}
+            ></div>
+            <div className="p-6 text-center">
+              <span className="text-blue-400 font-semibold text-sm uppercase tracking-wider">
+                We do
+              </span>
+              <h3 className="text-xl font-bold text-white mt-2 mb-4">
+                Custom Software Development
               </h3>
-              <div className="flex justify-end">
-                <button className="text-blue-400 hover:text-blue-300 font-medium">
-                  Read More
-                </button>
-              </div>
+              <button className="text-blue-400 hover:text-blue-300 font-medium">
+                Read More →
+              </button>
             </div>
           </div>
 
-          {/* Service 3 - Graphics Designing */}
-          <div className="bg-gray-800 rounded-lg overflow-hidden">
-            {/* Image placeholder - Replace with your actual image */}
-            <div className="h-48 bg-gradient-to-r from-orange-600 to-red-600 flex items-center justify-center">
-              <span className="text-white text-lg font-semibold">Graphics Design Image</span>
-            </div>
-            <div className="p-8">
-              <h3 className="text-2xl font-bold text-white mb-6">
-                <span className="text-blue-400 font-semibold block mb-2">We do</span>
-                <strong>Graphics Designing</strong>
+          {/* Service 3 */}
+          <div className="bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300">
+            <div
+              className="h-56 bg-cover bg-center"
+              style={{ backgroundImage: "url('/design1.jpg')" }}
+            ></div>
+            <div className="p-6 text-center">
+              <span className="text-blue-400 font-semibold text-sm uppercase tracking-wider">
+                We do
+              </span>
+              <h3 className="text-xl font-bold text-white mt-2 mb-4">
+                Graphics Designing
               </h3>
-              <div className="flex justify-end">
-                <button className="text-blue-400 hover:text-blue-300 font-medium">
-                  Read More
-                </button>
-              </div>
+              <button className="text-blue-400 hover:text-blue-300 font-medium">
+                Read More →
+              </button>
             </div>
           </div>
         </div>

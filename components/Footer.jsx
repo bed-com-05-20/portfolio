@@ -1,59 +1,44 @@
 "use client";
 
-import { Facebook, Twitter, Instagram, Github, Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin } from "lucide-react";
 
 const Footer = ({ scrollToSection }) => {
-  const quickLinks = ['home', 'services', 'about', 'pricing', 'contact'];
+  const handleQuickLinkClick = (section) => {
+    if (scrollToSection && typeof scrollToSection === 'function') {
+      scrollToSection(section.toLowerCase());
+    }
+  };
 
   return (
-    <footer className="py-16 bg-gray-900">
+    <footer id="contact" className="py-16 bg-gray-900 border-t border-gray-800">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          
-          {/* Logo + social */}
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 items-start">
+          {/* Company Info */}
+          <div className="md:col-span-2">
             <div className="flex items-center mb-6">
-              <div className="mr-3 flex h-10 w-10 items-center justify-center rounded-full border-2 border-blue-400 bg-gray-800 p-1">
-                <span className="text-xl font-bold text-blue-400"></span>
+              <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-full border-2 border-blue-500 bg-gray-800">
+                <span className="text-xl font-bold text-blue-500">S</span>
               </div>
-              <span className="text-xl font-bold text-white">SKYTEC</span>
+              <span className="text-2xl font-bold text-white">SKYTEC</span>
             </div>
-            <p className="text-gray-400 mb-6">
-              Expert software solutions for your business. We help transform your ideas into reality with cutting-edge technology.
+            <p className="text-gray-400 mb-6 text-lg leading-relaxed max-w-md">
+              Transforming ideas into innovative digital solutions. We specialize in custom software development, 
+              web design, and cutting-edge technology services for businesses worldwide.
             </p>
-            <div className="flex space-x-4">
-              {[Facebook, Twitter, Instagram, Github].map((Icon, i) => (
-                <a key={i} href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
-                  <Icon className="h-5 w-5" />
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-xl font-bold text-white mb-6">Quick Links</h3>
-            <ul className="space-y-3">
-              {quickLinks.map((item) => (
-                <li key={item}>
-                  <button 
-                    onClick={() => scrollToSection(item)} 
-                    className="text-gray-400 hover:text-blue-400 transition-colors capitalize"
+            <h3 className="text-xl font-bold text-white mb-6 uppercase tracking-wider">Quick Links</h3>
+            <ul className="space-y-4">
+              {['home', 'services', 'about', 'pricing', 'contact'].map((section) => (
+                <li key={section}>
+                  <button
+                    onClick={() => handleQuickLinkClick(section)}
+                    className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-lg capitalize text-left"
                   >
-                    {item}
+                    {section}
                   </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h3 className="text-xl font-bold text-white mb-6">Services</h3>
-            <ul className="space-y-3">
-              {['Web Development', 'UI/UX Design', 'Mobile Apps', 'Graphic Design', 'Software Solutions'].map((service) => (
-                <li key={service} className="text-gray-400 hover:text-blue-400 transition-colors">
-                  {service}
                 </li>
               ))}
             </ul>
@@ -61,27 +46,66 @@ const Footer = ({ scrollToSection }) => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-xl font-bold text-white mb-6">Contact Info</h3>
-            <div className="space-y-4">
-              <div className="flex items-center">
-                <Phone className="mr-3 h-5 w-5 text-blue-400" />
-                <span className="text-gray-400">+265(0) 990 0126 21</span>
+            <h3 className="text-xl font-bold text-white mb-6 uppercase tracking-wider">Get In Touch</h3>
+            <div className="space-y-5">
+              <div className="flex items-start">
+                <Phone className="mt-1 mr-4 h-5 w-5 text-blue-400 flex-shrink-0" />
+                <div>
+                  <p className="text-gray-400 font-medium">Phone</p>
+                  <p className="text-gray-300">+265 990 012 621</p>
+                </div>
               </div>
-              <div className="flex items-center">
-                <Mail className="mr-3 h-5 w-5 text-blue-400" />
-                <span className="text-gray-400">skytec@gmail.com</span>
+              
+              <div className="flex items-start">
+                <Mail className="mt-1 mr-4 h-5 w-5 text-blue-400 flex-shrink-0" />
+                <div>
+                  <p className="text-gray-400 font-medium">Email</p>
+                  <p className="text-gray-300">skytec@gmail.com</p>
+                </div>
               </div>
-              <div className="flex items-center">
-                <MapPin className="mr-3 h-5 w-5 text-blue-400" />
-                <span className="text-gray-400">Mponela, Dowa, Malawi</span>
+              
+              <div className="flex items-start">
+                <MapPin className="mt-1 mr-4 h-5 w-5 text-blue-400 flex-shrink-0" />
+                <div>
+                  <p className="text-gray-400 font-medium">Location</p>
+                  <p className="text-gray-300">Mponela, Malawi</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom copyright */}
-        <div className="border-t border-gray-800 mt-12 pt-8 text-center">
-          <p className="text-gray-400">© {new Date().getFullYear()} SKYTEC Technologies. All rights reserved.</p>
+        {/* Divider */}
+        <div className="border-t border-gray-800 my-12"></div>
+
+        {/* Bottom Section */}
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="text-center md:text-left mb-6 md:mb-0">
+            <p className="text-gray-400 text-lg">
+              © {new Date().getFullYear()} SKYTEC Technologies. All rights reserved.
+            </p>
+          </div>
+          
+          <div className="flex items-center space-x-6">
+            <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm">
+              Privacy Policy
+            </a>
+            <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm">
+              Terms of Service
+            </a>
+            <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm">
+              Cookie Policy
+            </a>
+          </div>
+        </div>
+
+        {/* Trust Badges */}
+        <div className="mt-8 text-center">
+          <div className="inline-flex items-center space-x-6 bg-gray-800 px-6 py-3 rounded-lg">
+            <span className="text-gray-300 text-sm">🚀 Premium Quality</span>
+            <span className="text-gray-300 text-sm">⭐ 24/7 Support</span>
+            <span className="text-gray-300 text-sm">💼 Enterprise Grade</span>
+          </div>
         </div>
       </div>
     </footer>
