@@ -11,8 +11,8 @@ import Contact from "../components/Contact";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("home");
-
-const scrollToSection = (id) => {
+  
+const scrollToSection = (id: string) => {
   const section = document.getElementById(id);
   if (section) {
     window.scrollTo({
@@ -22,6 +22,7 @@ const scrollToSection = (id) => {
     setActiveSection(id);
   }
 };
+
 
 
   return (
