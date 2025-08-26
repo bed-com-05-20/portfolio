@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-const Navbar = ({ activeSection, setActiveSection }) => {
+const Navbar = ({ activeSection, setActiveSection, scrollToSection }) => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -34,14 +34,19 @@ const Navbar = ({ activeSection, setActiveSection }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [setActiveSection]);
 
-  const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      window.scrollTo({
-        top: section.offsetTop - 80,
-        behavior: "smooth",
-      });
-      setActiveSection(sectionId);
+  // Use the passed scrollToSection function if available, otherwise use the internal one
+  const handleScrollToSection = (sectionId) => {
+    if (scrollToSection) {
+      scrollToSection(sectionId);
+    } else {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        window.scrollTo({
+          top: section.offsetTop - 80,
+          behavior: "smooth",
+        });
+        setActiveSection(sectionId);
+      }
     }
   };
 
@@ -67,7 +72,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
           {["home", "services", "about", "pricing", "contact"].map((section) => (
             <button
               key={section}
-              onClick={() => scrollToSection(section)}
+              onClick={() => handleScrollToSection(section)}
               className={`uppercase font-medium transition-colors ${
                 activeSection === section
                   ? "text-blue-400"
@@ -86,7 +91,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
           </button>
           <button
             className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-500 transition-colors"
-            onClick={() => scrollToSection("contact")}
+            onClick={() => handleScrollToSection("contact")}
           >
             Get in Touch
           </button>

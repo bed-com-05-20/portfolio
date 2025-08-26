@@ -12,17 +12,17 @@ import Contact from "../components/Contact";
 export default function Home() {
   const [activeSection, setActiveSection] = useState("home");
 
-  // Scroll function
-  const scrollToSection = (id: string) => {
-    const section = document.getElementById(id);
-    if (section) {
-      window.scrollTo({
-        top: section.offsetTop - 80, // adjust offset for navbar
-        behavior: "smooth",
-      });
-      setActiveSection(id);
-    }
-  };
+const scrollToSection = (id) => {
+  const section = document.getElementById(id);
+  if (section) {
+    window.scrollTo({
+      top: section.offsetTop - 80, // adjust offset for navbar
+      behavior: "smooth",
+    });
+    setActiveSection(id);
+  }
+};
+
 
   return (
     <div className="min-h-screen bg-gray-900 text-white relative">
@@ -44,14 +44,17 @@ export default function Home() {
         <Navbar
           activeSection={activeSection}
           setActiveSection={setActiveSection}
-        
+          scrollToSection={scrollToSection}
         />
-        <Hero scrollToSection={scrollToSection} /> {/* pass it here too */}
+        <Hero scrollToSection={scrollToSection} />
         <Services />
         <About setActiveSection={setActiveSection} />
-        <Pricing setActiveSection={setActiveSection} />
+        <Pricing
+          setActiveSection={setActiveSection}
+          scrollToSection={scrollToSection}
+        />
         <Contact />
-        <Footer scrollToSection={scrollToSection} /> 
+        <Footer scrollToSection={scrollToSection} />
       </div>
     </div>
   );
