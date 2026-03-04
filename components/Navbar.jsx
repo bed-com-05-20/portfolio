@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 
-const Navbar = ({ activeSection, setActiveSection, scrollToSection }) => {
+const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,21 +33,33 @@ const Navbar = ({ activeSection, setActiveSection, scrollToSection }) => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [setActiveSection]);
+  }, []);
 
-  // Use the passed scrollToSection function if available, otherwise use the internal one
-  const handleScrollToSection = (sectionId) => {
-    if (scrollToSection) {
-      scrollToSection(sectionId);
+  const scrollToSection = (sectionId) => {
+    // First try to find element by ID
+    let section = document.getElementById(sectionId);
+    
+    // If not found by ID and it's the contact section, try finding by component wrapper
+    if (!section && sectionId === 'contact') {
+      // Try to find the Contact component by its section ID or class
+      section = document.getElementById('contact') || 
+                document.querySelector('[data-contact="true"]') ||
+                document.querySelector('.contact-section');
+    }
+    
+    if (section) {
+      const offset = 80; // Adjust this value based on your navbar height
+      const elementPosition = section.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+      
+      setActiveSection(sectionId);
     } else {
-      const section = document.getElementById(sectionId);
-      if (section) {
-        window.scrollTo({
-          top: section.offsetTop - 80,
-          behavior: "smooth",
-        });
-        setActiveSection(sectionId);
-      }
+      console.warn(`Section with id "${sectionId}" not found`);
     }
   };
 
@@ -64,7 +77,6 @@ const Navbar = ({ activeSection, setActiveSection, scrollToSection }) => {
           <div className="mr-3 flex h-10 w-10 items-center justify-center rounded-full border-2 border-blue-400 bg-gray-800 p-1">
             <span className="text-xl font-bold text-blue-400">S</span>
           </div>
-          <span className="text-xl font-bold text-white">SKYTEC</span>
         </div>
 
         {/* NAV LINKS */}
@@ -72,7 +84,7 @@ const Navbar = ({ activeSection, setActiveSection, scrollToSection }) => {
           {["home", "services", "about", "pricing", "contact"].map((section) => (
             <button
               key={section}
-              onClick={() => handleScrollToSection(section)}
+              onClick={() => scrollToSection(section)}
               className={`uppercase font-medium transition-colors ${
                 activeSection === section
                   ? "text-blue-400"
@@ -91,7 +103,7 @@ const Navbar = ({ activeSection, setActiveSection, scrollToSection }) => {
           </button>
           <button
             className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-500 transition-colors"
-            onClick={() => handleScrollToSection("contact")}
+            onClick={() => scrollToSection("contact")}
           >
             Get in Touch
           </button>

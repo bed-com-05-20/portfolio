@@ -67,7 +67,8 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white py-16">
+    <section id="contact" className="py-24 bg-gray-900">
+    {/* <div className="min-h-screen bg-gray-900 text-white py-16"> */}
       {/* Toast Container */}
       <Toaster />
       
@@ -95,7 +96,7 @@ const Contact = () => {
                 </div>
                 <div className="flex items-center text-gray-400 ml-9">
                   <Mail className="h-5 w-5 mr-3 text-blue-400" />
-                  <span>skytec@gmail.com</span>
+                  <span>info@skytec.mw</span>
                 </div>
               </div>
 
@@ -110,7 +111,7 @@ const Contact = () => {
                 </div>
                 <div className="flex items-center text-gray-400 ml-9">
                   <Phone className="h-5 w-5 mr-3 text-blue-400" />
-                  <span>+265990012621</span>
+                  <span>+265 990 126 21</span>
                 </div>
               </div>
 
@@ -277,7 +278,8 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </div>
+    {/* </div> */}
+    </section>
   );
 };
 
